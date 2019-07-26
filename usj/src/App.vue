@@ -24,7 +24,7 @@ export default {
             // entire view has been rendered
             this.time1 = new Date().getSeconds()
             // console.log(this.time1)
-            console.log(this.time1 - this.time0)
+            // console.log(this.time1 - this.time0)
         })
     },
     components: {
