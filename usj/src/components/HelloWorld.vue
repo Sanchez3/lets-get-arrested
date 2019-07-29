@@ -78,7 +78,7 @@ export default {
     },
     mounted: function() {
         this.$nextTick(function() {
-            this.startAll()
+            // this.startAll()
         })
     },
     methods: {
@@ -120,9 +120,11 @@ a {
 }
 
 .ascii {
-    display: none;
+    /*display: none;*/
     font-size: 1vw;
     /*line-height: 1vw;*/
     /*transform: translateX(-50%);*/
 }
+
+
 </style>

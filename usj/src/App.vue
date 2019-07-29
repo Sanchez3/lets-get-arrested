@@ -1,17 +1,23 @@
 <template>
     <div id="app">
         <HelloWorld msg="Universal Studios Japan" />
+        <div class="alerts-wrapper">
+            <Alerts v-bind:question="question"/>
+        </div>
     </div>
 </template>
 <script>
 import HelloWorld from './components/HelloWorld.vue'
-
+import Alerts from './components/Alerts.vue'
 export default {
     name: 'app',
     data: function() {
         return {
             time0: 0,
-            time1: 0
+            time1: 0,
+            question: [
+            { q: 'Are you Okay?', a1: 'Yeah!', a2: 'Oh!' }
+            ]
         }
     },
     created: function() {
@@ -28,7 +34,9 @@ export default {
         })
     },
     components: {
-        HelloWorld
+        HelloWorld,
+        Alerts
+
     }
 }
 </script>
@@ -38,7 +46,16 @@ export default {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
-    color: #2c3e50;
+    color: #000000;
     margin-top: 60px;
+}
+
+.alerts-wrapper {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
 }
 </style>
