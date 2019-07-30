@@ -2,7 +2,7 @@
     <div id="app">
         <HelloWorld msg="Universal Studios Japan" />
         <div class="alerts-wrapper">
-            <Alerts v-bind:question="question"/>
+            <Alerts v-bind:question="question" />
         </div>
     </div>
 </template>
@@ -16,7 +16,13 @@ export default {
             time0: 0,
             time1: 0,
             question: [
-            { q: 'Are you Okay?', a1: 'Yeah!', a2: 'Oh!' }
+                { q: 'Go To USJ?', a1: 'Yeah!', a2: 'Must do!' },
+                { q: '早餐哪吃?', a1: 'LAWSON', a2: '7-Eleven' },
+                { q: '咋去?', a1: '地铁', a2: '打的，壕' },
+                { q: '到达USJ，买个票', a1: 'Express快速票', a2: '仅门票' },
+                { q: '', a1: 'Express快速票', a2: '仅门票' },
+
+
             ]
         }
     },
