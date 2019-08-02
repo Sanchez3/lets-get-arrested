@@ -26,7 +26,7 @@ export default {
         question: Object,
     },
     methods: {
-        doAction1: function(count) {
+        doAction1: function() {
             if (this.count==0) {
                 this.time++;
                 if (this.time > 12) {
@@ -43,6 +43,7 @@ export default {
                 this.time = 6
 
             }
+            event.target.classList.remove('hover')
 
         },
         doAction2: function() {
@@ -53,6 +54,7 @@ export default {
                 this.count = 0
                 this.time = 6
             }
+            event.target.classList.remove('hover')
         },
         doAction3: function() {
             // console.log(this.$props.question.linkDataArray[this.count].a3.to)
@@ -62,6 +64,7 @@ export default {
                 this.count = 0
                 this.time = 6
             }
+            event.target.classList.remove('hover')
         },
         doHover: function(event) {
             event.target.classList.add('hover')
