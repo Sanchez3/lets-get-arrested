@@ -4,6 +4,7 @@
         <div class="alerts-wrapper">
             <Alerts v-bind:question="flow" />
         </div>
+        <footer><a href="https://movie.douban.com/review/9856170/">流程参考黑镜</a></footer>
     </div>
 </template>
 <script>
@@ -227,5 +228,14 @@ export default {
     width: 100%;
     height: 100%;
     /*background-color: rgba(0, 0, 0, 0.6);*/
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    font-size: 0.5px;
+    left: 0;
+    right: 0;
+    margin: auto;
 }
 </style>
