@@ -9,7 +9,9 @@
             <div v-if="question.nodeDataArray[count].a2&&question.nodeDataArray[count].a2!==''" class="dline"></div>
             <div v-if="question.nodeDataArray[count].a2&&question.nodeDataArray[count].a2!==''" class="action2" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a2"></span></div>
             <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="dline"></div>
-            <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="action3" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a3"></span></div>
+            <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="action3" @click.self="doAction3" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a3"></span></div>
+            <div v-if="question.nodeDataArray[count].a4&&question.nodeDataArray[count].a4!==''" class="dline"></div>
+            <div v-if="question.nodeDataArray[count].a4&&question.nodeDataArray[count].a4!==''" class="action4" @click.self="doAction4" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a4"></span></div>
         </div>
     </div>
 </template>
@@ -27,7 +29,7 @@ export default {
     },
     methods: {
         doAction1: function() {
-            if (this.count==0) {
+            if (this.count == 0) {
                 this.time++;
                 if (this.time > 12) {
                     alert('睡吧别起来了')
@@ -59,6 +61,16 @@ export default {
         doAction3: function() {
             // console.log(this.$props.question.linkDataArray[this.count].a3.to)
             this.count = this.$props.question.linkDataArray[this.count].a3.to
+            if (this.count == 100) {
+                alert('这是谁写的BUG')
+                this.count = 0
+                this.time = 6
+            }
+            event.target.classList.remove('hover')
+        },
+        doAction4: function() {
+            // console.log(this.$props.question.linkDataArray[this.count].a3.to)
+            this.count = this.$props.question.linkDataArray[this.count].a4.to
             if (this.count == 100) {
                 alert('这是谁写的BUG')
                 this.count = 0
@@ -149,6 +161,15 @@ export default {
 }
 
 .action3 {
+    flex-grow: 1;
+    line-height: 100%;
+    font-size: 14px;
+    color: #007AFF;
+    height: 100%;
+    user-select: none;
+}
+
+.action4 {
     flex-grow: 1;
     line-height: 100%;
     font-size: 14px;
