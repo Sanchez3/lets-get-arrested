@@ -119,12 +119,28 @@ a {
     color: #42b983;
 }
 
-.ascii {
-    /*display: none;*/
-    font-size: 1vw;
-    /*line-height: 1vw;*/
-    /*transform: translateX(-50%);*/
+.hello {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
+.ascii {
+    position: absolute;
+    /*display: none;*/
+    font-size: 1vw;
+    /*transform: translateX(-50%);*/
+    left: 50%;
+    transform: translateX(-50%);
+    top:20%;
+}
 
+@media screen and (max-width: 750px) {
+    .ascii {
+        /*display: none;*/
+        line-height: 100%;
+        /*transform: translateX(-50%);*/
+    }
+}
 </style>

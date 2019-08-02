@@ -1,10 +1,15 @@
 <template>
     <div class="alerts">
-        <div class="alerts-content">{{question.nodeDataArray[count].text}}</div>
+        <div class="alerts-content">
+            <span v-if="question.nodeDataArray[count].key==='0'">{{`${time}:00 `+question.nodeDataArray[count].text}}</span>
+            <span v-else>{{question.nodeDataArray[count].text}}</span>
+        </div>
         <div class="alerts-choices">
-            <div v-if="question.nodeDataArray[count].a1&&question.nodeDataArray[count].a1!==''" class="action1" @click.self="doAction1" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover">{{question.nodeDataArray[count].a1}}</div>
-            <div v-if="question.nodeDataArray[count].a2&&question.nodeDataArray[count].a2!==''" class="action2" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover">{{question.nodeDataArray[count].a2}}</div>
-            <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="action3" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover">{{question.nodeDataArray[count].a3}}</div>
+            <div v-if="question.nodeDataArray[count].a1&&question.nodeDataArray[count].a1!==''" class="action1" @click.self="doAction1" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a1"></span></div>
+            <div v-if="question.nodeDataArray[count].a2&&question.nodeDataArray[count].a2!==''" class="dline"></div>
+            <div v-if="question.nodeDataArray[count].a2&&question.nodeDataArray[count].a2!==''" class="action2" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a2"></span></div>
+            <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="dline"></div>
+            <div v-if="question.nodeDataArray[count].a3&&question.nodeDataArray[count].a3!==''" class="action3" @click.self="doAction2" @touchstart.self="doHover" @touchend.self="disHover" @mouseenter.self="doHover" @mouseleave.self="disHover"><span v-html="question.nodeDataArray[count].a3"></span></div>
         </div>
     </div>
 </template>
@@ -13,19 +18,30 @@ export default {
     name: 'Alerts',
     data: function() {
         return {
-            count: 0
+            count: 0,
+            time: 6
         }
     },
     props: {
-        question: Object
+        question: Object,
     },
     methods: {
         doAction1: function(count) {
-            // console.log(this.$props.question.linkDataArray[this.count].a1.to)
+            if (this.count==0) {
+                this.time++;
+                if (this.time > 12) {
+                    alert('睡吧别起来了')
+                    this.count = 0
+                    this.time = 6
+                }
+            }
+
             this.count = this.$props.question.linkDataArray[this.count].a1.to
             if (this.count == 100) {
                 alert('这是谁写的BUG')
                 this.count = 0
+                this.time = 6
+
             }
 
         },
@@ -35,6 +51,7 @@ export default {
             if (this.count == 100) {
                 alert('这是谁写的BUG')
                 this.count = 0
+                this.time = 6
             }
         },
         doAction3: function() {
@@ -43,6 +60,7 @@ export default {
             if (this.count == 100) {
                 alert('这是谁写的BUG')
                 this.count = 0
+                this.time = 6
             }
         },
         doHover: function(event) {
@@ -86,20 +104,41 @@ export default {
     border-top: 0.5px solid #000;
     bottom: 0;
     width: 100%;
+    align-items: center;
+
 }
 
 .action1 {
     flex-grow: 1;
-    padding-top: 13px;
+    align-self: center;
+    line-height: 100%;
     font-size: 14px;
-	height: 100%;
+    height: 100%;
     color: #007AFF;
+    text-align: center;
+}
+
+.alerts-choices span {
+    line-height: 300%;
     user-select: none;
+    pointer-events: none;
+
+}
+
+.dline {
+    position: relative;
+
+    /*position: absolute;*/
+    left: 0;
+    top: 0;
+    width: 0.5px;
+    height: 100%;
+    border-left: 0.5px solid #000;
 }
 
 .action2 {
     flex-grow: 1;
-    padding-top: 13px;
+    line-height: 100%;
     font-size: 14px;
     height: 100%;
     color: #007AFF;
@@ -108,12 +147,13 @@ export default {
 
 .action3 {
     flex-grow: 1;
-    padding-top: 13px;
+    line-height: 100%;
     font-size: 14px;
     color: #007AFF;
     height: 100%;
     user-select: none;
 }
+
 .hover {
     background-color: rgba(234, 234, 234, 1);
 }
