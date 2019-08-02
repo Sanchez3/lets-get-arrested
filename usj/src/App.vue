@@ -28,7 +28,7 @@ export default {
                     { key: '9', text: '「Universal Express」🎫 ', a1: '通行券 4', a2: '通行券 7' },
                     { key: '10', text: '你是穷吧', a1: '我爱排队', a2: '是的🤲🏻' },
                     { key: '11', text: '前面有卖爆米花的🍿', a1: 'GO', a2: '走' },
-                    { key: '12', text: '极其NB爆米花桶', a1: 'EVA哥斯拉爆米花桶🦖', a2: 'EVA初号机爆米花桶🤖' },
+                    { key: '12', text: '极其NB爆米花桶', a1: 'EVA哥斯拉🦖', a2: 'EVA初号机🤖' },
                     { key: '13', text: '每日限定，售罄', a1: '心态爆炸💥', a2: '哎，好吧' },
                     { key: '14', text: '买买买', a1: '「EVA初号机爆米花桶」💟', a2: '普通爆米花' },
                     { key: '15', text: '真香🤯', a1: '爆米花香', a2: '爆米花桶香' },
@@ -68,7 +68,7 @@ export default {
                     { key: '49', text: '身子骨撑不住了END💀', a1: '我吃还不成吗', a2: '真香' },
                     { key: '50', text: '有点渴，喝点什么', a1: '「jaws冰沙」🥶', a2: '不，不渴' },
                     { key: '51', text: '这设施也太多了，选择困难症🤔', a1: '继续游戏设施', a2: '商店买买买' },
-                    { key: '52', text: '我是', a1: '误入魔法世界的麻瓜✋', a2: '沉迷魔法世界的大法师🤚' },
+                    { key: '52', text: '我是', a1: '误入魔法世界的麻瓜✋', a2: '沉迷魔法世界的法师🤚' },
                     { key: '53', text: 'Continue⏯', a1: '迫不及待', a2: '急不可耐' },
                     { key: '54', text: '游戏派出发', a1: '加快⏩', a2: '不慢▶️' },
                     { key: '55', text: '各式各样，琳琅满目♾', a1: '我就试试，不买', a2: '买呀' },
@@ -233,9 +233,10 @@ export default {
 footer {
     position: absolute;
     bottom: 0;
-    font-size: 0.5px;
+    font-size: 1px;
     left: 0;
     right: 0;
+    padding-bottom: 10px;
     margin: auto;
 }
 </style>

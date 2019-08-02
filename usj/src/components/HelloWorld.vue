@@ -101,6 +101,14 @@ export default {
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+h1{
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      margin: auto;
+      padding-top: 10px
+}
 h3 {
     margin: 40px 0 0;
 }
@@ -123,7 +131,7 @@ a {
     position: absolute;
     width: 100%;
     height: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .ascii {
@@ -133,7 +141,7 @@ a {
     /*transform: translateX(-50%);*/
     left: 50%;
     transform: translateX(-50%);
-    top:20%;
+    top:10%;
 }
 
 @media screen and (max-width: 750px) {
