@@ -29,6 +29,7 @@ export default {
     },
     methods: {
         doAction1: function() {
+            event.target.classList.remove('hover')
             if (this.count == 0) {
                 this.time++;
                 if (this.time > 12) {
@@ -38,45 +39,59 @@ export default {
                 }
             }
 
-            this.count = this.$props.question.linkDataArray[this.count].a1.to
-            if (this.count == 100) {
-                alert('这是谁写的BUG')
+            this._to = this.$props.question.linkDataArray[this.count].a1.to
+            if (this._to == 100) {
+                alert(this.$props.question.nodeDataArray[this.count].text)
                 this.count = 0
                 this.time = 6
-
+            } else {
+                this.count = this._to
             }
-            event.target.classList.remove('hover')
-
         },
+        // runBug: function() {
+        //     var r = window.confirm('这是谁写的BUG')
+        // },
         doAction2: function() {
             // console.log(this.$props.question.linkDataArray[this.count].a2.to)
-            this.count = this.$props.question.linkDataArray[this.count].a2.to
-            if (this.count == 100) {
-                alert('这是谁写的BUG')
+
+            this._to = this.$props.question.linkDataArray[this.count].a2.to
+            event.target.classList.remove('hover')
+            if (this._to == 100) {
+                alert(this.$props.question.nodeDataArray[this.count].text)
+
                 this.count = 0
                 this.time = 6
+            } else {
+                this.count = this._to
             }
-            event.target.classList.remove('hover')
+
         },
         doAction3: function() {
             // console.log(this.$props.question.linkDataArray[this.count].a3.to)
-            this.count = this.$props.question.linkDataArray[this.count].a3.to
-            if (this.count == 100) {
-                alert('这是谁写的BUG')
+            this._to = this.$props.question.linkDataArray[this.count].a3.to
+            event.target.classList.remove('hover')
+            if (this._to == 100) {
+                alert(this.$props.question.nodeDataArray[this.count].text)
                 this.count = 0
                 this.time = 6
+            } else {
+                this.count = this._to
             }
-            event.target.classList.remove('hover')
+
         },
         doAction4: function() {
             // console.log(this.$props.question.linkDataArray[this.count].a3.to)
-            this.count = this.$props.question.linkDataArray[this.count].a4.to
-            if (this.count == 100) {
-                alert('这是谁写的BUG')
+            this._to = this.$props.question.linkDataArray[this.count].a4.to
+
+            event.target.classList.remove('hover')
+            if (this._to == 100) {
+                alert(this.$props.question.nodeDataArray[this.count].text)
                 this.count = 0
                 this.time = 6
+            } else {
+                this.count = this._to
             }
-            event.target.classList.remove('hover')
+
         },
         doHover: function(event) {
             event.target.classList.add('hover')
